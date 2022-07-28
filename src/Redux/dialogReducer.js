@@ -1,9 +1,9 @@
 function dialogReducer(state = false, action) {
     switch (action.type) {
       case 'OPEN_DIALOG':
-        return state;
+        return true;
       case 'CLOSE_DIALOG':
-        return [];
+        return false;
       default:
         return state;
     }

@@ -18,6 +18,8 @@ import SkillItem from './SkillItem';
 function SkillTable() {
 
     const employeeSkillData = (useSelector(store => store.skillReducer));
+    const isOpen = (useSelector(store => store.dialogReducer));
+
     const dispatch = useDispatch();
 
 
@@ -29,6 +31,7 @@ function SkillTable() {
 
     const handleOpenDialog = () => {
         console.log('clicked Add Skill');
+        dispatch({type: 'OPEN_DIALOG'});
     }
 
 

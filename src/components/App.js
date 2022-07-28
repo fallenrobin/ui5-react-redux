@@ -23,14 +23,7 @@ function App() {
         profile={<Avatar></Avatar>}
         secondaryTitle=""
       />
-      {/* <FlexBox
-        style={{ width: '100%', height: '100vh' }}
-        direction={FlexBoxDirection.Column}
-        justifyContent={FlexBoxJustifyContent.Center}
-        alignItems={FlexBoxAlignItems.Center}
-      > */}
         <HomePage />
-      {/* </FlexBox> */}
     </>
   );
 }

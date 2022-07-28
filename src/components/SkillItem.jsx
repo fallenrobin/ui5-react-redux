@@ -1,17 +1,37 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useDispatch } from 'react-redux';
+
 import {
-    Table,
-    TableColumn,
     Label,
     TableRow,
     TableCell,
-    AnalyticalTable,
-    FlexBox,
     Button,
     RatingIndicator
 } from '@ui5/webcomponents-react';
 
 function SkillItem({ skill }) {
+
+    const dispatch = useDispatch();
+
+const [technology, setTechnology] = useState('');
+const [date, setDate] = useState('');
+const [rating, setRating] = useState('');
+
+    // const editedSkill =
+    // {
+    //     technology: technology,
+    //     date: date,
+    //     rating: rating,
+    // }
+
+    const handleSkillEdit = () => {
+        console.log('clicked edit!');
+        // dispatch({
+        //     type: 'EDIT_SKILL',
+        //     payload: 
+        // })
+    };
+
     return (
         <TableRow>
             <TableCell>
@@ -20,20 +40,20 @@ function SkillItem({ skill }) {
                 </Label>
             </TableCell>
             <TableCell>
-                <RatingIndicator 
-                value={skill.rating}
-                readonly='true'
+                <RatingIndicator
+                    value={skill.rating}
+                    readonly='true'
                 />
             </TableCell>
             <TableCell>
                 <Label>
-                    {skill.Date}
+                    {skill.date}
                 </Label>
             </TableCell>
             <TableCell>
                 <Button
                     icon="edit"
-                    disabled={true}
+                    onClick={handleSkillEdit}
                 />
             </TableCell>
             <TableCell>

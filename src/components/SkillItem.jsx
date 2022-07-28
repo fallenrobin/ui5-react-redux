@@ -20,7 +20,10 @@ function SkillItem({ skill }) {
                 </Label>
             </TableCell>
             <TableCell>
-                <RatingIndicator />
+                <RatingIndicator 
+                value={skill.rating}
+                readonly='true'
+                />
             </TableCell>
             <TableCell>
                 <Label>

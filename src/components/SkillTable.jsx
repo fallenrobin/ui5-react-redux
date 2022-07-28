@@ -12,6 +12,7 @@ import {
 import "@ui5/webcomponents-icons/dist/add";
 
 import SkillItem from './SkillItem';
+import GenericDialog from './GenericDialog';
 
 
 
@@ -32,6 +33,10 @@ function SkillTable() {
     const handleOpenDialog = () => {
         console.log('clicked Add Skill');
         dispatch({type: 'OPEN_DIALOG'});
+    }
+
+    const handleCloseDialog = () => {
+        dispatch({type: 'CLOSE_DIALOG'});
     }
 
 
@@ -79,6 +84,14 @@ function SkillTable() {
                     onClick={handleOpenDialog}
                 >
                     Add a Skill
+                </Button>
+                <Button
+                    design="Negative"
+                    style={{ width: "10em", marginLeft: "1em", marginTop: "1em" }}
+                    onClick={handleCloseDialog}
+                    open
+                >
+                    close dialog
                 </Button>
             </FlexBox>
         </>

@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+
 import {
     AnalyticalTable,
     FlexBox,
-    Button, 
+    Button,
     RatingIndicator
 } from '@ui5/webcomponents-react';
 import "@ui5/webcomponents-icons/dist/delete";
@@ -11,14 +13,23 @@ import "@ui5/webcomponents-icons/dist/delete";
 
 function SkillTable() {
 
-    
+    const employeeSkillData = (useSelector(store => store.skillReducer));
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch({
+            type: 'GET_SKILLS'
+        });
+    }, []);
+    console.log(employeeSkillData);
+
     return (
         <AnalyticalTable
             columns={[
                 {
                     Header: 'Technology',
                     accessor: 'technology',
-                    headerTooltip: 'Full Name', 
+                    headerTooltip: 'Full Name',
                     width: 400
                 },
                 {
@@ -29,7 +40,7 @@ function SkillTable() {
                         // console.log('This is your row data', row.original);
                         return (
                             <FlexBox>
-                                <RatingIndicator/>
+                                <RatingIndicator />
                             </FlexBox>
                         );
                     },
@@ -39,15 +50,15 @@ function SkillTable() {
                     disableFilters: false,
                     disableGroupBy: true,
                     disableSortBy: false,
-                    hAlign: 'End', 
+                    hAlign: 'End',
                     width: 300
                 },
                 {
                     Header: 'Date Modified',
-                    accessor: 'Date', 
+                    accessor: 'Date',
                     width: 200
                 },
-                
+
                 {
                     Cell: (instance) => {
                         const { cell, row, webComponentsReactProperties } = instance;
@@ -82,7 +93,7 @@ function SkillTable() {
                     technology: 'React',
                     Date: '01/01/2021',
                     status: 'None'
-                }, 
+                },
                 {
                     technology: 'ABAP RAP',
                     Date: '01/01/2021',
@@ -93,7 +104,7 @@ function SkillTable() {
                     technology: 'CAPM',
                     Date: '01/01/2021',
                     status: 'None'
-                }, 
+                },
                 {
                     technology: 'OData',
                     Date: '01/01/2021',

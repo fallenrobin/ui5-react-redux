@@ -37,15 +37,15 @@ const initialState =
 ];
 
 
-const skillReducer = (state = initialState, action) => {
-    switch (action.type) {
-      case 'SET_SKILL':
-        return action.payload;
-      case 'taco':
-        return [];
-      default:
-        return state;
-    }
-  };
+function skillReducer(state = 1, action) {
+  switch (action.type) {
+    case 'GET_SKILLS':
+      return state;
+    case 'taco':
+      return [];
+    default:
+      return state;
+  }
+}
 
   export default skillReducer;

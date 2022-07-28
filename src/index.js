@@ -2,7 +2,7 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { ThemeProvider } from '@ui5/webcomponents-react';
-import { store } from './Redux/store';
+import  store  from './Redux/store';
 import App from './components/App';
 import reportWebVitals from './reportWebVitals';
 import './index.css';

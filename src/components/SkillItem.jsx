@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useDispatch } from 'react-redux';
 
 import {
@@ -9,28 +9,12 @@ import {
     RatingIndicator
 } from '@ui5/webcomponents-react';
 
+import "@ui5/webcomponents-icons/dist/delete";
+
+
 function SkillItem({ skill }) {
 
     const dispatch = useDispatch();
-
-const [technology, setTechnology] = useState('');
-const [date, setDate] = useState('');
-const [rating, setRating] = useState('');
-
-    // const editedSkill =
-    // {
-    //     technology: technology,
-    //     date: date,
-    //     rating: rating,
-    // }
-
-    const handleSkillEdit = () => {
-        console.log('clicked edit!');
-        // dispatch({
-        //     type: 'EDIT_SKILL',
-        //     payload: 
-        // })
-    };
 
     return (
         <TableRow>
@@ -53,13 +37,13 @@ const [rating, setRating] = useState('');
             <TableCell>
                 <Button
                     icon="edit"
-                    onClick={handleSkillEdit}
+                    // onClick={trigger dialog open}
                 />
             </TableCell>
             <TableCell>
                 <Button
                     icon="delete"
-                    disabled={true}
+                    // disabled={true}
                 />
             </TableCell>
         </TableRow>

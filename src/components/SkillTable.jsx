@@ -5,13 +5,10 @@ import {
     Table,
     TableColumn,
     Label,
-    TableRow,
-    TableCell,
-    AnalyticalTable,
     FlexBox,
-    Button,
-    RatingIndicator
-} from '@ui5/webcomponents-react';
+    Button
+}
+    from '@ui5/webcomponents-react';
 import "@ui5/webcomponents-icons/dist/add";
 
 import SkillItem from './SkillItem';
@@ -29,49 +26,60 @@ function SkillTable() {
             type: 'GET_SKILLS'
         });
     }, []);
-    
+
+    const handleOpenDialog = () => {
+        console.log('clicked Add Skill');
+    }
+
 
     return (
-<>
-        <Table
-            columns={<>
-                <TableColumn style={{ width: '30rem' }}>
-                    <Label>Technology</Label>
-                </TableColumn>
-                <TableColumn minWidth={800} popinText="Supplier">
-                    <Label>Rating</Label>
-                </TableColumn>
-                <TableColumn demandPopin minWidth={400} popinText="Dimensions">
-                    <Label>Date Modified</Label>
-                </TableColumn>
-                <TableColumn demandPopin minWidth={400} popinText="Weight">
-                    <Label>Edit</Label>
-                </TableColumn>
-                <TableColumn>
-                    <Label>Delete</Label>
-                </TableColumn></>}
-            onLoadMore={function noRefCheck() { }}
-            onPopinChange={function noRefCheck() { }}
-            onRowClick={function noRefCheck() { }}
-            onSelectionChange={function noRefCheck() { }}
-        >
-            {employeeSkillData.map((skill) => {
-                return (
-                    <SkillItem 
-                    skill={skill} 
-                    key={skill.technology}
-                    />
-                )
-            })}
-        </Table >
-        <Button
-        icon="add"
-        design="Positive"
-        >
-            Add a Skill
-        </Button>
+        <>
+            <FlexBox
+                style={{ display: 'flex', flexDirection: 'column' }}
+            >
+                <Table
+                    columns={<>
+                        <TableColumn style={{ width: '30rem' }}>
+                            <Label>Technology</Label>
+                        </TableColumn>
+                        <TableColumn minWidth={800} popinText="Supplier">
+                            <Label>Rating</Label>
+                        </TableColumn>
+                        <TableColumn demandPopin minWidth={400} popinText="Dimensions">
+                            <Label>Date Modified</Label>
+                        </TableColumn>
+                        <TableColumn demandPopin minWidth={400} popinText="Weight">
+                            <Label>Edit</Label>
+                        </TableColumn>
+                        <TableColumn>
+                            <Label>Delete</Label>
+                        </TableColumn></>}
+                    onLoadMore={function noRefCheck() { }}
+                    onPopinChange={function noRefCheck() { }}
+                    onRowClick={function noRefCheck() { }}
+                    onSelectionChange={function noRefCheck() { }}
+                    style={{ width: "50%" }}
+                >
+                    {employeeSkillData.map((skill) => {
+                        return (
+                            <SkillItem
+                                skill={skill}
+                                key={skill.technology}
+                            />
+                        )
+                    })}
+                </Table >
+                <Button
+                    icon="add"
+                    design="Positive"
+                    style={{ width: "10em", marginLeft: "1em", marginTop: "1em" }}
+                    onClick={handleOpenDialog}
+                >
+                    Add a Skill
+                </Button>
+            </FlexBox>
         </>
     )
 }
 
-export default SkillTable
+export default SkillTable;

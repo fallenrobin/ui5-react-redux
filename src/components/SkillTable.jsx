@@ -13,6 +13,7 @@ import {
     RatingIndicator
 } from '@ui5/webcomponents-react';
 import "@ui5/webcomponents-icons/dist/delete";
+import SkillItem from './SkillItem';
 
 
 
@@ -85,34 +86,12 @@ function SkillTable() {
             onRowClick={function noRefCheck() { }}
             onSelectionChange={function noRefCheck() { }}
         >
-            <TableRow>
-                <TableCell>
-                    <Label>
-                        {employeeSkillData[0].technology}
-                    </Label>
-                </TableCell>
-                <TableCell>
-                    <Label>
-                        {employeeSkillData[0].rating}
-                    </Label>
-                </TableCell>
-                <TableCell>
-                    <Label>
-                        {employeeSkillData[0].Date}
-                    </Label>
-                </TableCell>
-                <TableCell>
-                    <Label>
-                        edit button
-                    </Label>
-                </TableCell>
-                <TableCell>
-                    <Label>
-                        delete button
-                    </Label>
-                </TableCell>
-            </TableRow>
-        </Table>
+            {employeeSkillData.map((skill) => {
+                return (
+                    <SkillItem skill={skill} />
+                )
+            })}
+        </Table >
     )
 }
 

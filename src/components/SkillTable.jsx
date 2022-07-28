@@ -10,6 +10,8 @@ import "@ui5/webcomponents-icons/dist/delete";
 
 
 function SkillTable() {
+
+    
     return (
         <AnalyticalTable
             columns={[

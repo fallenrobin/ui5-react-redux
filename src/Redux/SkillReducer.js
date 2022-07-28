@@ -37,7 +37,7 @@ const initialState =
 ];
 
 
-function skillReducer(state = 1, action) {
+function skillReducer(state = initialState, action) {
   switch (action.type) {
     case 'GET_SKILLS':
       return state;

@@ -11,7 +11,7 @@ import {
     RatingIndicator
 } from '@ui5/webcomponents-react';
 
-function SkillItem({skill}) {
+function SkillItem({ skill }) {
     return (
         <TableRow>
             <TableCell>
@@ -20,9 +20,7 @@ function SkillItem({skill}) {
                 </Label>
             </TableCell>
             <TableCell>
-                <Label>
-                    {skill.rating}
-                </Label>
+                <RatingIndicator />
             </TableCell>
             <TableCell>
                 <Label>
@@ -30,18 +28,20 @@ function SkillItem({skill}) {
                 </Label>
             </TableCell>
             <TableCell>
-                <Label>
-                    edit button
-                </Label>
+                <Button
+                    icon="edit"
+                    disabled={true}
+                />
             </TableCell>
             <TableCell>
-                <Label>
-                    delete button
-                </Label>
+                <Button
+                    icon="delete"
+                    disabled={true}
+                />
             </TableCell>
         </TableRow>
-        
-  )
+
+    )
 }
 
 export default SkillItem

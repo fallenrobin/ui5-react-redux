@@ -52,6 +52,13 @@ function SkillTable() {
         });
     }, []);
 
+    const handleSave = () => {
+        dispatch({
+            type: 'SET_SKILL',
+            payload: newSkillData
+        })
+    }
+
     const handleOpenDialog = () => {
         console.log('clicked Add Skill');
         dispatch({ type: 'OPEN_DIALOG' });
@@ -139,6 +146,7 @@ function SkillTable() {
                                     design="Emphasized"
                                     icon="accept"
                                     open
+                                    onClick={handleSave}
                                 >
                                     Save
                                 </Button>

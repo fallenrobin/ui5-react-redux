@@ -38,8 +38,9 @@ function skillReducer(state = initialState, action) {
   switch (action.type) {
     case 'GET_SKILLS':
       return state;
-    case 'taco':
-      return [];
+    case 'SET_SKILL':
+      console.log(action.payload);
+      // return [...initialState, payload];
     default:
       return state;
   }

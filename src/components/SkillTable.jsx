@@ -6,13 +6,14 @@ import {
     TableColumn,
     Label,
     FlexBox,
-    Button
+    Button,
+    Dialog
 }
     from '@ui5/webcomponents-react';
 import "@ui5/webcomponents-icons/dist/add";
 
 import SkillItem from './SkillItem';
-import GenericDialog from './GenericDialog';
+// import GenericDialog from './GenericDialog';
 
 
 
@@ -32,11 +33,11 @@ function SkillTable() {
 
     const handleOpenDialog = () => {
         console.log('clicked Add Skill');
-        dispatch({type: 'OPEN_DIALOG'});
+        dispatch({ type: 'OPEN_DIALOG' });
     }
 
     const handleCloseDialog = () => {
-        dispatch({type: 'CLOSE_DIALOG'});
+        dispatch({ type: 'CLOSE_DIALOG' });
     }
 
 
@@ -85,6 +86,11 @@ function SkillTable() {
                 >
                     Add a Skill
                 </Button>
+                <Dialog
+                    open={isOpen}
+                >
+                    Add skill
+                </Dialog>
                 <Button
                     design="Negative"
                     style={{ width: "10em", marginLeft: "1em", marginTop: "1em" }}

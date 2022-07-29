@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import {
     ComboBox,
@@ -8,19 +8,22 @@ import {
 } from '@ui5/webcomponents-react';
 
 
-function SkillDropdown() {
+function SkillDropdown({ newSkillData }) {
+
+    const [selectedSkill, setSelectedSkill] = useState('');
 
     const selectSkill = () => {
-        console.log('skill selected:');
+        console.log('skill selected:', selectedSkill);
     }
 
     return (
         <ComboBox
-            onChange={selectSkill}
+            // onChange={selectSkill}
+            onChange={(event) => setSelectedSkill(event.target.value)}
             placeholder={'Select technology'}
         >
             <ComboBoxGroupItem text="Front end" />
-            <ComboBoxItem text="CSS"/>
+            <ComboBoxItem text="CSS" />
             <ComboBoxItem text="Tailwind" />
             <ComboBoxItem text="MUI" />
             <ComboBoxItem text="UI5" />

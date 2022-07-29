@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import {
@@ -13,7 +13,10 @@ import {
     RatingIndicator,
     Icon,
     Title,
-    Text
+    Text,
+    ComboBox,
+    ComboBoxGroupItem,
+    ComboBoxItem
 }
     from '@ui5/webcomponents-react';
 import "@ui5/webcomponents-icons/dist/add";
@@ -28,8 +31,15 @@ import SkillDropdown from '../_widgets.js/SkillDropdown';
 
 function SkillTable() {
 
+    const [selectedSkill, setSelectedSkill] = useState('');
     const employeeSkillData = (useSelector(store => store.skillReducer));
     const isOpen = (useSelector(store => store.dialogReducer));
+    // const newSkillData =
+    // {
+    //     skill: { selectedSkill },
+    //     rating: { rating },
+    //     date: { date }
+    // }
 
     const dispatch = useDispatch();
 
@@ -47,6 +57,11 @@ function SkillTable() {
 
     const handleCloseDialog = () => {
         dispatch({ type: 'CLOSE_DIALOG' });
+    }
+
+    const handleDropdown = (event) => {
+        setSelectedSkill(event.target.value)
+        console.log('skill selected:', selectedSkill);
     }
 
 
@@ -107,7 +122,7 @@ function SkillTable() {
                             Add Skill
                         </Title>
                     </Bar>
-                    } 
+                    }
                     footer=
                     {<Bar
                         design="Footer"
@@ -138,12 +153,30 @@ function SkillTable() {
                             flexDirection: 'column'
                         }}
                     >
-                        <SkillDropdown />
-
+                        <ComboBox
+                            onChange={event => handleDropdown(event)}
+                            placeholder={'Select technology'}
+                        >
+                            <ComboBoxGroupItem text="Front end" />
+                            <ComboBoxItem text="CSS" />
+                            <ComboBoxItem text="Tailwind" />
+                            <ComboBoxItem text="MUI" />
+                            <ComboBoxItem text="UI5" />
+                            <ComboBoxGroupItem text="Back end" />
+                            <ComboBoxItem text="Python" />
+                            <ComboBoxItem text="PHP" />
+                            <ComboBoxItem text="Java" />
+                            <ComboBoxItem text="C#" />
+                            <ComboBoxGroupItem text="Design" />
+                            <ComboBoxItem text="Figma" />
+                            <ComboBoxItem text="Mural" />
+                            <ComboBoxItem text="Adobe Illustrator" />
+                            <ComboBoxItem text="ProofHub" />
+                        </ComboBox>
                         {/* FIXME: info icon */}
-                        <Text
-                        icon="information"
-                        style={{marginTop:'1em'}}
+                        < Text
+                            icon="information"
+                            style={{ marginTop: '1em' }}
                         >
                             What is your level in this skill?
                         </Text>

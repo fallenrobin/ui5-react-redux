@@ -90,16 +90,16 @@ function SkillTable() {
                 <Dialog
                     open={isOpen}
                 >
-                    <SkillDropdown/>
+                    <SkillDropdown />
+                    <Button
+                        design="Negative"
+                        style={{ width: "10em", marginLeft: "1em", marginTop: "1em" }}
+                        onClick={handleCloseDialog}
+                        open
+                    >
+                        close dialog
+                    </Button>
                 </Dialog>
-                <Button
-                    design="Negative"
-                    style={{ width: "10em", marginLeft: "1em", marginTop: "1em" }}
-                    onClick={handleCloseDialog}
-                    open
-                >
-                    close dialog
-                </Button>
             </FlexBox>
         </>
     )

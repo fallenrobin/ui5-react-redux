@@ -14,22 +14,23 @@ function SkillDropdown() {
             onInput={function noRefCheck() { }}
             onOpenChange={function noRefCheck() { }}
             onSelectionChange={function noRefCheck() { }}
+            placeholder={'Select technology'}
         >
-            <MultiComboBoxGroupItem text="Asia" />
-            <MultiComboBoxItem text="Afghanistan" />
-            <MultiComboBoxItem text="China" />
-            <MultiComboBoxItem text="India" />
-            <MultiComboBoxItem text="Indonesia" />
-            <MultiComboBoxGroupItem text="Europe" />
-            <MultiComboBoxItem text="Austria" />
-            <MultiComboBoxItem text="Bulgaria" />
-            <MultiComboBoxItem text="Germany" />
-            <MultiComboBoxItem text="Italy" />
-            <MultiComboBoxGroupItem text="North America" />
-            <MultiComboBoxItem text="Canada" />
-            <MultiComboBoxItem text="Granada" />
-            <MultiComboBoxItem text="Haiti" />
-            <MultiComboBoxItem text="United States" />
+            <MultiComboBoxGroupItem text="Front end" />
+            <MultiComboBoxItem text="CSS" />
+            <MultiComboBoxItem text="Tailwind" />
+            <MultiComboBoxItem text="MUI" />
+            <MultiComboBoxItem text="UI5" />
+            <MultiComboBoxGroupItem text="Back end" />
+            <MultiComboBoxItem text="Python" />
+            <MultiComboBoxItem text="PHP" />
+            <MultiComboBoxItem text="Java" />
+            <MultiComboBoxItem text="C#" />
+            <MultiComboBoxGroupItem text="Design" />
+            <MultiComboBoxItem text="Figma" />
+            <MultiComboBoxItem text="Mural" />
+            <MultiComboBoxItem text="Adobe Illustrator" />
+            <MultiComboBoxItem text="ProofHub" />
         </MultiComboBox>
     )
 }

@@ -1,9 +1,9 @@
 import React from 'react'
 
-import { 
+import {
     ComboBox,
     ComboBoxGroupItem,
-    ComboBoxItem, 
+    ComboBoxItem,
     Input
 } from '@ui5/webcomponents-react';
 
@@ -33,9 +33,9 @@ function SkillDropdown() {
             <ComboBoxItem text="Adobe Illustrator" />
             <ComboBoxItem text="ProofHub" />
             <ComboBoxGroupItem text="Create new skill" />
-            <ComboBoxItem 
-            text="Create new skill" 
-            style={{color:'red'}}
+            <ComboBoxItem
+                text="Create new skill"
+                valueState="Error"
             />
 
         </ComboBox>

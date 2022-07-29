@@ -8,7 +8,8 @@ import {
     FlexBox,
     Button,
     Dialog,
-    FlexBoxJustifyContent
+    FlexBoxJustifyContent,
+    Bar
 }
     from '@ui5/webcomponents-react';
 import "@ui5/webcomponents-icons/dist/add";
@@ -94,6 +95,32 @@ function SkillTable() {
                 </Button>
                 <Dialog
                     open={isOpen}
+                    headerText="Add Skill"
+                    footer=
+                    {<Bar
+                        design="Footer"
+                        endContent={
+                            <>
+                                <Button
+                                    design="Emphasized"
+                                    icon="accept"
+                                    // style={{ width: "10em", marginLeft: "1em", marginTop: "1em" }}
+                                    // onClick={handleCloseDialog}
+                                    open
+                                >
+                                    Save
+                                </Button>
+                                <Button
+                                    design="transparent"
+                                    // style={{ width: "10em", marginLeft: "1em", marginTop: "1em" }}
+                                    onClick={handleCloseDialog}
+                                    open
+                                >
+                                    Cancel
+                                </Button>
+                            </>
+                        } />}
+
                 >
                     <FlexBox
                         style=
@@ -102,31 +129,7 @@ function SkillTable() {
                         }}
                     >
                         <SkillDropdown />
-                        <FlexBox
-                            style=
-                            {{
-                                display: 'flex',
-                                flexDirection: 'row'
-                            }}
-                            >
-                            <Button
-                                design="Emphasized"
-                                icon="accept"
-                                style={{ width: "10em", marginLeft: "1em", marginTop: "1em" }}
-                                // onClick={handleCloseDialog}
-                                open
-                            >
-                                Save
-                            </Button>
-                            <Button
-                                design="transparent"
-                                style={{ width: "10em", marginLeft: "1em", marginTop: "1em" }}
-                                onClick={handleCloseDialog}
-                                open
-                            >
-                                Cancel
-                            </Button>
-                        </FlexBox>
+                        
                     </FlexBox>
                 </Dialog>
             </FlexBox>

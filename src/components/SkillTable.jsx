@@ -40,7 +40,7 @@ function SkillTable() {
     {
         skill: { selectedSkill },
         rating: { selectedRating },
-        // date: { date }
+        // date: { {Date.now} }
     }
 
     const dispatch = useDispatch();
@@ -67,17 +67,6 @@ function SkillTable() {
     const handleCloseDialog = () => {
         dispatch({ type: 'CLOSE_DIALOG' });
     }
-
-    const handleDropdown = (event) => {
-        setSelectedSkill(event.target.value)
-        console.log('skill selected:', selectedSkill);
-    }
-
-    const handleRating = (event) => {
-        setSelectedRating(event.target.value)
-        console.log('Rating:', selectedRating);
-    }
-
 
     return (
         <>
@@ -169,7 +158,7 @@ function SkillTable() {
                         }}
                     >
                         <ComboBox
-                            onChange={event => handleDropdown(event)}
+                            onChange={(event) => setSelectedSkill(event.target.value)}
                             placeholder={'Select technology'}
                         >
                             <ComboBoxGroupItem text="Front end" />
@@ -197,7 +186,7 @@ function SkillTable() {
                         </Text>
 
                         <RatingIndicator
-                            onChange={event => handleRating(event)}
+                            onChange={(event) => setSelectedRating(event.target.value)}
                         />
 
                     </FlexBox>

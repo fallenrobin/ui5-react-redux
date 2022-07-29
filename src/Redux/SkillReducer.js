@@ -39,11 +39,13 @@ function skillReducer(state = initialState, action) {
     case 'GET_SKILLS':
       return state;
     case 'SET_SKILL':
-      console.log(action.payload);
-      // return [...initialState, payload];
+      // console.log(action.payload);
+      return [...initialState, action.payload];
     default:
       return state;
   }
 }
+
+console.log('in skill reducer, new state should be:', initialState);
 
   export default skillReducer;

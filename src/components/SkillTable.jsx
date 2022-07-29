@@ -13,7 +13,8 @@ import {
 import "@ui5/webcomponents-icons/dist/add";
 
 import SkillItem from './SkillItem';
-// import GenericDialog from './GenericDialog';
+// TODO: import GenericDialog from './GenericDialog';
+import SkillDropdown from '../_widgets.js/SkillDropdown';
 
 
 
@@ -89,7 +90,7 @@ function SkillTable() {
                 <Dialog
                     open={isOpen}
                 >
-                    Add skill
+                    <SkillDropdown/>
                 </Dialog>
                 <Button
                     design="Negative"

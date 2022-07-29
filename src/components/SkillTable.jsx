@@ -38,8 +38,8 @@ function SkillTable() {
     const isOpen = (useSelector(store => store.dialogReducer));
     const newSkillData =
     {
-        skill: { selectedSkill },
-        rating: { selectedRating },
+        technology: selectedSkill,
+        rating: selectedRating,
         // date: { {Date.now} }
     }
 

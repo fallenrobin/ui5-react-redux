@@ -1,4 +1,4 @@
-const initialState =
+const employeeSkillData =
 
   [
   {
@@ -34,18 +34,18 @@ const initialState =
 ];
 
 
-function skillReducer(state = initialState, action) {
+function skillReducer(state = employeeSkillData, action) {
   switch (action.type) {
     case 'GET_SKILLS':
       return state;
     case 'SET_SKILL':
       // console.log(action.payload);
-      return [...initialState, action.payload];
+      return [...employeeSkillData, action.payload];
     default:
       return state;
   }
 }
 
-console.log('in skill reducer, new state should be:', initialState);
+console.log('in skill reducer, new state should be:', employeeSkillData);
 
   export default skillReducer;

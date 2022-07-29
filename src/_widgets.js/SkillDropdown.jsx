@@ -1,37 +1,44 @@
 import React from 'react'
 
 import { 
-    MultiComboBox,
-    MultiComboBoxGroupItem,
-    MultiComboBoxItem
+    ComboBox,
+    ComboBoxGroupItem,
+    ComboBoxItem, 
+    Input
 } from '@ui5/webcomponents-react';
 
 
 function SkillDropdown() {
     return (
-        <MultiComboBox
+        <ComboBox
             onChange={function noRefCheck() { }}
             onInput={function noRefCheck() { }}
             onOpenChange={function noRefCheck() { }}
             onSelectionChange={function noRefCheck() { }}
             placeholder={'Select technology'}
         >
-            <MultiComboBoxGroupItem text="Front end" />
-            <MultiComboBoxItem text="CSS" />
-            <MultiComboBoxItem text="Tailwind" />
-            <MultiComboBoxItem text="MUI" />
-            <MultiComboBoxItem text="UI5" />
-            <MultiComboBoxGroupItem text="Back end" />
-            <MultiComboBoxItem text="Python" />
-            <MultiComboBoxItem text="PHP" />
-            <MultiComboBoxItem text="Java" />
-            <MultiComboBoxItem text="C#" />
-            <MultiComboBoxGroupItem text="Design" />
-            <MultiComboBoxItem text="Figma" />
-            <MultiComboBoxItem text="Mural" />
-            <MultiComboBoxItem text="Adobe Illustrator" />
-            <MultiComboBoxItem text="ProofHub" />
-        </MultiComboBox>
+            <ComboBoxGroupItem text="Front end" />
+            <ComboBoxItem text="CSS" />
+            <ComboBoxItem text="Tailwind" />
+            <ComboBoxItem text="MUI" />
+            <ComboBoxItem text="UI5" />
+            <ComboBoxGroupItem text="Back end" />
+            <ComboBoxItem text="Python" />
+            <ComboBoxItem text="PHP" />
+            <ComboBoxItem text="Java" />
+            <ComboBoxItem text="C#" />
+            <ComboBoxGroupItem text="Design" />
+            <ComboBoxItem text="Figma" />
+            <ComboBoxItem text="Mural" />
+            <ComboBoxItem text="Adobe Illustrator" />
+            <ComboBoxItem text="ProofHub" />
+            <ComboBoxGroupItem text="Create new skill" />
+            <ComboBoxItem 
+            text="Create new skill" 
+            style={{color:'red'}}
+            />
+
+        </ComboBox>
     )
 }
 

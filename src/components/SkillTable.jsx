@@ -32,14 +32,16 @@ import SkillDropdown from '../_widgets.js/SkillDropdown';
 function SkillTable() {
 
     const [selectedSkill, setSelectedSkill] = useState('');
+    const [selectedRating, setSelectedRating] = useState('');
+
     const employeeSkillData = (useSelector(store => store.skillReducer));
     const isOpen = (useSelector(store => store.dialogReducer));
-    // const newSkillData =
-    // {
-    //     skill: { selectedSkill },
-    //     rating: { rating },
-    //     date: { date }
-    // }
+    const newSkillData =
+    {
+        skill: { selectedSkill },
+        rating: { selectedRating },
+        // date: { date }
+    }
 
     const dispatch = useDispatch();
 
@@ -62,6 +64,11 @@ function SkillTable() {
     const handleDropdown = (event) => {
         setSelectedSkill(event.target.value)
         console.log('skill selected:', selectedSkill);
+    }
+
+    const handleRating = (event) => {
+        setSelectedRating(event.target.value)
+        console.log('Rating:', selectedRating);
     }
 
 
@@ -182,6 +189,7 @@ function SkillTable() {
                         </Text>
 
                         <RatingIndicator
+                            onChange={event => handleRating(event)}
                         />
 
                     </FlexBox>

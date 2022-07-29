@@ -9,10 +9,16 @@ import {
     Button,
     Dialog,
     FlexBoxJustifyContent,
-    Bar
+    Bar,
+    RatingIndicator,
+    Icon,
+    Title,
+    Text
 }
     from '@ui5/webcomponents-react';
 import "@ui5/webcomponents-icons/dist/add";
+import "@ui5/webcomponents-icons/dist/information";
+
 
 import SkillItem from './SkillItem';
 // TODO: import GenericDialog from './GenericDialog';
@@ -95,7 +101,13 @@ function SkillTable() {
                 </Button>
                 <Dialog
                     open={isOpen}
-                    headerText="Add Skill"
+                    header=
+                    {<Bar>
+                        <Title>
+                            Add Skill
+                        </Title>
+                    </Bar>
+                    } 
                     footer=
                     {<Bar
                         design="Footer"
@@ -104,15 +116,12 @@ function SkillTable() {
                                 <Button
                                     design="Emphasized"
                                     icon="accept"
-                                    // style={{ width: "10em", marginLeft: "1em", marginTop: "1em" }}
-                                    // onClick={handleCloseDialog}
                                     open
                                 >
                                     Save
                                 </Button>
                                 <Button
                                     design="transparent"
-                                    // style={{ width: "10em", marginLeft: "1em", marginTop: "1em" }}
                                     onClick={handleCloseDialog}
                                     open
                                 >
@@ -125,11 +134,23 @@ function SkillTable() {
                     <FlexBox
                         style=
                         {{
-                            display: 'block',
+                            display: 'flex',
+                            flexDirection: 'column'
                         }}
                     >
                         <SkillDropdown />
-                        
+
+                        {/* FIXME: info icon */}
+                        <Text
+                        icon="information"
+                        style={{marginTop:'1em'}}
+                        >
+                            What is your level in this skill?
+                        </Text>
+
+                        <RatingIndicator
+                        />
+
                     </FlexBox>
                 </Dialog>
             </FlexBox>

@@ -9,16 +9,18 @@ import {
 
 
 function SkillDropdown() {
+
+    const selectSkill = () => {
+        console.log('skill selected:');
+    }
+
     return (
         <ComboBox
-            onChange={function noRefCheck() { }}
-            onInput={function noRefCheck() { }}
-            onOpenChange={function noRefCheck() { }}
-            onSelectionChange={function noRefCheck() { }}
+            onChange={selectSkill}
             placeholder={'Select technology'}
         >
             <ComboBoxGroupItem text="Front end" />
-            <ComboBoxItem text="CSS" />
+            <ComboBoxItem text="CSS"/>
             <ComboBoxItem text="Tailwind" />
             <ComboBoxItem text="MUI" />
             <ComboBoxItem text="UI5" />
@@ -32,12 +34,6 @@ function SkillDropdown() {
             <ComboBoxItem text="Mural" />
             <ComboBoxItem text="Adobe Illustrator" />
             <ComboBoxItem text="ProofHub" />
-            <ComboBoxGroupItem text="Create new skill" />
-            <ComboBoxItem
-                text="Create new skill"
-                valueState="Error"
-            />
-
         </ComboBox>
     )
 }

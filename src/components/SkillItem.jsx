@@ -23,10 +23,24 @@ function SkillItem({ skill }) {
     const dispatch = useDispatch();
     const [open, setOpen] = useState(false)
 
+    const [editedRating, setEditedRating] = useState('');
 
-    // const handleClickEdit = () => {
-    //     setOpen(true);
-    // }
+    const editedData =
+    {
+        technology: skill.technology,
+        rating: editedRating,
+        id: skill.id,
+        date: '8/1/2022'
+        // TODO: date: { {Date.now} }
+    }
+
+
+    const handleSaveEdit = () => {
+        dispatch({
+            type: 'SET_EDITED_RATING',
+            payload: editedData
+     })
+    }
 
     return (
         <>
@@ -49,7 +63,7 @@ function SkillItem({ skill }) {
                                 design="Emphasized"
                                 icon="accept"
                                 open
-                            // onClick={handleSave}
+                                onClick={handleSaveEdit}
                             >
                                 Save
                             </Button>
@@ -69,22 +83,22 @@ function SkillItem({ skill }) {
                         flexDirection: 'column'
                     }}
                 >
-                    <SkillDropdown 
-                    // disabled={true}
-                    id={skill.id}
-                    disabled={true}
-                    value={skill.technology}
+                    <SkillDropdown
+                        id={skill.id}
+                        disabled={true}
+                        value={skill.technology}
+                        callback={handleSaveEdit}
                     />
                     < Text
                         icon="information"
                         style={{ marginTop: '1em' }}
                     >
-                        What is your level in this skill?
+                        Adjust your skill level:
                     </Text>
 
                     <RatingIndicator
-                    // onChange={(event) => setSelectedRating(event.target.value)}
-                    // value={selectedRating}
+                        value={skill.rating}
+                        onChange={(event) => setEditedRating(event.target.value)}
                     />
                 </FlexBox>
             </Dialog>

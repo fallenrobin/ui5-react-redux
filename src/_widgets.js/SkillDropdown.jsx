@@ -8,7 +8,7 @@ import {
 } from '@ui5/webcomponents-react';
 
 
-function SkillDropdown({ id, disabled, value }) {
+function SkillDropdown({ id, disabled, value, callback }) {
 
     const [selectedSkill, setSelectedSkill] = useState('');
 

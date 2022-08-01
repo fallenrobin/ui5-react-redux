@@ -40,7 +40,8 @@ function SkillTable() {
     {
         technology: selectedSkill,
         rating: selectedRating,
-        id:7
+        id:7,
+        date:'8/1/2022'
         // date: { {Date.now} }
     }
 

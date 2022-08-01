@@ -57,6 +57,9 @@ function SkillTable() {
             type: 'SET_SKILL',
             payload: newSkillData
         })
+        handleCloseDialog();
+        setSelectedRating('');
+        setSelectedSkill('');
     }
 
     const handleOpenDialog = () => {
@@ -160,6 +163,7 @@ function SkillTable() {
                         <ComboBox
                             onChange={(event) => setSelectedSkill(event.target.value)}
                             placeholder={'Select technology'}
+                            value={selectedSkill}
                         >
                             <ComboBoxGroupItem text="Front end" />
                             <ComboBoxItem text="CSS" />
@@ -187,6 +191,7 @@ function SkillTable() {
 
                         <RatingIndicator
                             onChange={(event) => setSelectedRating(event.target.value)}
+                            value={selectedRating}
                         />
 
                     </FlexBox>

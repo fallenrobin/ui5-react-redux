@@ -1,12 +1,13 @@
-import React from 'react'
-import { useDispatch } from 'react-redux';
+import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
 
 import {
     Label,
     TableRow,
     TableCell,
     Button,
-    RatingIndicator
+    RatingIndicator,
+    Dialog
 } from '@ui5/webcomponents-react';
 
 import "@ui5/webcomponents-icons/dist/delete";
@@ -15,10 +16,17 @@ import "@ui5/webcomponents-icons/dist/delete";
 function SkillItem({ skill }) {
 
     const dispatch = useDispatch();
+    const [open, setOpen] = useState(false)
+
+
+    const handleClickEdit = () => {
+        dispatch({ type: 'EDIT_DIALOG_OPEN' })
+        dispatch({ type: 'OPEN_DIALOG' })
+    }
 
     return (
         <TableRow
-        key={skill.id}>
+            key={skill.id}>
             <TableCell>
                 <Label>
                     {skill.technology}
@@ -38,13 +46,12 @@ function SkillItem({ skill }) {
             <TableCell>
                 <Button
                     icon="edit"
-                    // onClick={trigger dialog open}
+                    onClick={handleClickEdit}
                 />
             </TableCell>
             <TableCell>
                 <Button
                     icon="delete"
-                    // disabled={true}
                 />
             </TableCell>
         </TableRow>

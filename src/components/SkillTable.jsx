@@ -36,13 +36,15 @@ function SkillTable() {
 
     const employeeSkillData = (useSelector(store => store.skillReducer));
     const isOpen = (useSelector(store => store.dialogReducer));
+    const editMode = (useSelector(store => store.editDialogReducer));
+
     const newSkillData =
     {
         technology: selectedSkill,
         rating: selectedRating,
         id:7,
         date:'8/1/2022'
-        // date: { {Date.now} }
+        // TODO: date: { {Date.now} }
     }
 
     const dispatch = useDispatch();
@@ -99,10 +101,6 @@ function SkillTable() {
                         <TableColumn>
                             <Label>Delete</Label>
                         </TableColumn></>}
-                    onLoadMore={function noRefCheck() { }}
-                    onPopinChange={function noRefCheck() { }}
-                    onRowClick={function noRefCheck() { }}
-                    onSelectionChange={function noRefCheck() { }}
                     style={{ width: "50%" }}
                 >
                     {employeeSkillData.map((skill) => {

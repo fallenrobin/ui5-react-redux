@@ -1,15 +1,18 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import CreateSkillInput from '../_widgets.js/CreateSkillInput';
+import SkillDropdown from '../_widgets.js/SkillDropdown';
+import { RatingIndicator } from '@ui5/webcomponents-react';
+
 import {
+    FlexBox,
     Label,
     TableRow,
     TableCell,
     Button,
-    RatingIndicator,
     Dialog,
-    Bar, 
-    Title
+    Bar,
+    Title,
+    Text
 } from '@ui5/webcomponents-react';
 
 import "@ui5/webcomponents-icons/dist/delete";
@@ -29,10 +32,11 @@ function SkillItem({ skill }) {
         <>
             <Dialog
                 open={open}
+                // onAfterClose={setOpen(false)}
                 header=
                 {<Bar>
                     <Title>
-                        Create New Skill
+                        Edit Skill
                     </Title>
                 </Bar>
                 }
@@ -45,21 +49,44 @@ function SkillItem({ skill }) {
                                 design="Emphasized"
                                 icon="accept"
                                 open
-                                // onClick={handleSave}
+                            // onClick={handleSave}
                             >
                                 Save
                             </Button>
                             <Button
                                 design="transparent"
-                                // onClick={handleCloseDialog}
-                                open
+                                onClick={() => { setOpen(false) }}
                             >
                                 Cancel
                             </Button>
                         </>
                     } />}
             >
-                <CreateSkillInput/>
+                <FlexBox
+                    style=
+                    {{
+                        display: 'flex',
+                        flexDirection: 'column'
+                    }}
+                >
+                    <SkillDropdown 
+                    // disabled={true}
+                    id={skill.id}
+                    disabled={true}
+                    value={skill.technology}
+                    />
+                    < Text
+                        icon="information"
+                        style={{ marginTop: '1em' }}
+                    >
+                        What is your level in this skill?
+                    </Text>
+
+                    <RatingIndicator
+                    // onChange={(event) => setSelectedRating(event.target.value)}
+                    // value={selectedRating}
+                    />
+                </FlexBox>
             </Dialog>
             <TableRow
                 key={skill.id}>
@@ -82,7 +109,7 @@ function SkillItem({ skill }) {
                 <TableCell>
                     <Button
                         icon="edit"
-                        onClick={()=>setOpen(true)}
+                        onClick={() => setOpen(true)}
                     />
                 </TableCell>
                 <TableCell>

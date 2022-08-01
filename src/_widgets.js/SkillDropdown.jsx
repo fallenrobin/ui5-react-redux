@@ -41,4 +41,4 @@ function SkillDropdown({ newSkillData }) {
     )
 }
 
-export default SkillDropdown
+export default SkillDropdown;

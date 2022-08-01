@@ -40,6 +40,7 @@ function SkillTable() {
     {
         technology: selectedSkill,
         rating: selectedRating,
+        id:7
         // date: { {Date.now} }
     }
 
@@ -107,7 +108,7 @@ function SkillTable() {
                         return (
                             <SkillItem
                                 skill={skill}
-                                key={skill.technology}
+                                key={skill.id}
                             />
                         )
                     })}

@@ -17,7 +17,8 @@ function SkillItem({ skill }) {
     const dispatch = useDispatch();
 
     return (
-        <TableRow>
+        <TableRow
+        key={skill.id}>
             <TableCell>
                 <Label>
                     {skill.technology}

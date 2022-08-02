@@ -6,6 +6,10 @@ import {
     TabSeparator
 } from '@ui5/webcomponents-react';
 
+import HomePage from './HomePage';
+import RadarChart from './RadarChart';
+import Projects from './Projects';
+
 import "@ui5/webcomponents-icons/dist/radar-chart";
 import "@ui5/webcomponents-icons/dist/work-history";
 import "@ui5/webcomponents-icons/dist/activity-individual";
@@ -41,9 +45,9 @@ function TabsHomePage() {
                 additionalText="5"
                 icon="activity-individual"
                 text="My Skills"
-                onTabSelect={setSelectedTab}
+            // onTabSelect={setSelectedTab}
             >
-                My Skills
+                <HomePage />
             </Tab>
 
             <TabSeparator />
@@ -53,18 +57,18 @@ function TabsHomePage() {
                 icon="radar-chart"
                 text="Team Skills"
                 selected
-                onTabSelect={handleChart}
+            // onTabSelect={handleChart}
             >
-                Team Skills
+                <RadarChart />
             </Tab>
 
             <Tab
                 additionalText="20"
                 icon="work-history"
                 text="My Projects"
-                onTabSelect={handleProjects}
+            // onTabSelect={handleProjects}
             >
-                My Projects
+                <Projects />
             </Tab>
         </TabContainer>
     )

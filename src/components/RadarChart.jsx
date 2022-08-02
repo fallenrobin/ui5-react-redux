@@ -6,4 +6,4 @@ function RadarChart() {
   )
 }
 
-export default RadarChart
+export default RadarChart;

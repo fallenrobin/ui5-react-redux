@@ -1,11 +1,12 @@
 import { combineReducers } from 'redux';
 import skillReducer from './SkillReducer';
 import dialogReducer from './dialogReducer';
-
+import tabReducer from './TabReducer'
 
 const rootReducer = combineReducers({
     skillReducer, 
-    dialogReducer
+    dialogReducer, 
+    tabReducer
 });
 
 export default rootReducer;

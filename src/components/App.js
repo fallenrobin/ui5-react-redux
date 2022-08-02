@@ -1,4 +1,4 @@
-import { HashRouter as Router, Route } from "react-router-dom";
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
 
 import {
   FlexBox,
@@ -28,15 +28,17 @@ function App() {
       />
       <TabsHomePage />
       <Router>
-        <Route path='/' exact>
-          <HomePage />
-        </Route>
-        <Route path='/chart'>
-          <RadarChart />
-        </Route>
-        <Route path='/projects'>
-          <Projects />
-        </Route>
+        <Switch>
+          <Route path='/' exact>
+            <HomePage />
+          </Route>
+          <Route path='/chart'>
+            <RadarChart />
+          </Route>
+          <Route path='/projects'>
+            <Projects />
+          </Route>
+        </Switch>
       </Router>
     </>
   );

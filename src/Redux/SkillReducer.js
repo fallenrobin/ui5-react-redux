@@ -40,15 +40,21 @@ const employeeSkillData =
 
 
 function skillReducer(state = employeeSkillData, action) {
+
+
   switch (action.type) {
     case 'GET_SKILLS':
       return state;
     case 'SET_SKILL':
       return [...state, action.payload];
     case 'SET_EDITED_RATING':
-      state = state.filter(state.value.id != action.payload.id);
+      let employeeSkills = state.filter(employeeSkill => employeeSkill.id === action.payload.id);
+      for (const employeeSkill of employeeSkills) {
+        employeeSkill.rating = action.payload.rating
+      };
+      // employeeSkills[0].rating = action.payload.rating;
       console.log('in skill reducer, new state should be:', state);
-      return state;
+      return [...state];
     default:
       return state;
   }

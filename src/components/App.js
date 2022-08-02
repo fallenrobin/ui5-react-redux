@@ -1,3 +1,5 @@
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
+
 import {
   FlexBox,
   FlexBoxAlignItems,
@@ -9,7 +11,10 @@ import {
   Avatar
 } from '@ui5/webcomponents-react';
 
+import TabsHomePage from "./TabsHomePage";
 import HomePage from './HomePage';
+import RadarChart from "./RadarChart";
+import Projects from './Projects'
 
 function App() {
   return (
@@ -17,13 +22,24 @@ function App() {
       <ShellBar
         // logo={<MDXCreateElement alt="SAP Logo" mdxType="img" originalType="img" src="https://sap.github.io/ui5-webcomponents/assets/images/sap-logo-svg.svg"/>}
         onLogoClick={function noRefCheck() { }}
-        onMenuItemClick={function noRefCheck() { }}
-        onProfileClick={function noRefCheck() { }}
         primaryTitle="Mindset Skill Tracker"
         profile={<Avatar></Avatar>}
         secondaryTitle=""
       />
-        <HomePage />
+      <TabsHomePage />
+      <Router>
+        <Switch>
+          <Route path='/' exact>
+            <HomePage />
+          </Route>
+          <Route path='/chart'>
+            <RadarChart />
+          </Route>
+          <Route path='/projects'>
+            <Projects />
+          </Route>
+        </Switch>
+      </Router>
     </>
   );
 }

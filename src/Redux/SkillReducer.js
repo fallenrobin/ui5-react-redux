@@ -1,5 +1,4 @@
 const employeeSkillData =
-
   [
     {
       technology: 'ABAP',
@@ -47,13 +46,13 @@ function skillReducer(state = employeeSkillData, action) {
     case 'SET_SKILL':
       return [...state, action.payload];
     case 'SET_EDITED_RATING':
-      state = state.filter(state.id !== action.payload);
+      state = state.filter(state.value.id != action.payload.id);
+      console.log('in skill reducer, new state should be:', state);
       return state;
     default:
       return state;
   }
 }
 
-console.log('in skill reducer, new state should be:', employeeSkillData);
 
 export default skillReducer;

@@ -8,19 +8,25 @@ import {
 } from '@ui5/webcomponents-react';
 
 
-function SkillDropdown({ newSkillData }) {
+function SkillDropdown({ id, disabled, value, callback }) {
 
     const [selectedSkill, setSelectedSkill] = useState('');
 
-    const selectSkill = () => {
+    const handleSelect = () => {
         console.log('skill selected:', selectedSkill);
     }
 
     return (
         <ComboBox
-            // onChange={selectSkill}
-            onChange={(event) => setSelectedSkill(event.target.value)}
+            onChange={event => {
+                setSelectedSkill(event.target.value);
+                handleSelect();
+            }
+            }
+            // onChange={(event) => setSelectedSkill(event.target.value)}
             placeholder={'Select technology'}
+            disabled={disabled}
+            value={value}
         >
             <ComboBoxGroupItem text="Front end" />
             <ComboBoxItem text="CSS" />
@@ -41,4 +47,4 @@ function SkillDropdown({ newSkillData }) {
     )
 }
 
-export default SkillDropdown
+export default SkillDropdown;

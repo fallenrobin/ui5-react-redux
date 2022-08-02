@@ -12,7 +12,6 @@ import {
 } from '@ui5/webcomponents-react';
 
 import TabsHomePage from "./TabsHomePage";
-import HomePage from './HomePage';
 import RadarChart from "./RadarChart";
 import Projects from './Projects'
 
@@ -26,18 +25,17 @@ function App() {
         profile={<Avatar></Avatar>}
         secondaryTitle=""
       />
-      <TabsHomePage />
       <Router>
         <Switch>
           <Route path='/' exact>
-            <HomePage />
+            <TabsHomePage />
           </Route>
-          <Route path='/chart'>
+          {/* <Route path='/chart'>
             <RadarChart />
           </Route>
           <Route path='/projects'>
             <Projects />
-          </Route>
+          </Route> */}
         </Switch>
       </Router>
     </>

@@ -41,7 +41,7 @@ function TabsHomePage() {
                 additionalText="5"
                 icon="activity-individual"
                 text="My Skills"
-                onTabSelect={setSelectedTab('banana')}
+                onTabSelect={setSelectedTab}
             >
                 My Skills
             </Tab>

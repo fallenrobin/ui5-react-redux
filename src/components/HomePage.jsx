@@ -5,7 +5,6 @@ import TabsHomePage from './TabsHomePage';
 function HomePage() {
     return (
         <>
-            <TabsHomePage />
             <SkillTable />
         </>
     )

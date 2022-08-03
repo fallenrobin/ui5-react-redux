@@ -1,9 +1,11 @@
 import React from 'react'
+import { StandardListItem } from '@ui5/webcomponents-react';
+
 
 function TeamItem({ teamMember }) {
     return (
         <>
-            <li>{teamMember.name}</li>
+            <StandardListItem>{teamMember.name}</StandardListItem>
         </>
     )
 }

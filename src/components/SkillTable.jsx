@@ -179,7 +179,7 @@ function SkillTable() {
                                     onChange={(event) => handleSelect(event.target.value)}
                                     placeholder={'Select technology'}
                                     value={selectedSkill}
-                                    
+
                                 >
                                     <ComboBoxGroupItem text="Front end" />
                                     <ComboBoxItem text="CSS" />
@@ -199,12 +199,11 @@ function SkillTable() {
                                     <ComboBoxGroupItem text="Custom skill" />
                                     <ComboBoxItem text="Create custom skill" />
                                 </ComboBox>
-
                                 :
                                 <Input
                                     placeholder='What is your new skill?'
-                                    required='true'
                                     onChange={(event) => handleSelect(event.target.value)}
+                                    required
                                 />
 
                         }
@@ -218,6 +217,7 @@ function SkillTable() {
                         <RatingIndicator
                             onChange={(event) => setSelectedRating(event.target.value)}
                             value={selectedRating}
+                            required
                         />
 
                     </FlexBox>

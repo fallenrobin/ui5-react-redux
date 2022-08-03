@@ -17,7 +17,7 @@ import {
     ComboBox,
     ComboBoxGroupItem,
     ComboBoxItem,
-    Input
+    Input,
 }
     from '@ui5/webcomponents-react';
 import "@ui5/webcomponents-icons/dist/add";
@@ -34,10 +34,14 @@ function SkillTable() {
     const [selectedSkill, setSelectedSkill] = useState('');
     const [selectedRating, setSelectedRating] = useState('');
     const [selectCustom, setSelectCustom] = useState(false);
+    const [inputValueState, setInputValueState] = useState('');
+    const [inputString, setInputString] = useState('');
+
 
     const employeeSkillData = (useSelector(store => store.skillReducer));
     const isOpen = (useSelector(store => store.dialogReducer));
     const editMode = (useSelector(store => store.editDialogReducer));
+    const errorMessage = 'Please enter a skill'
 
     const newSkillData =
     {
@@ -58,13 +62,30 @@ function SkillTable() {
     }, []);
 
     const handleSave = () => {
-        dispatch({
-            type: 'SET_SKILL',
-            payload: newSkillData
-        })
-        handleCloseDialog();
-        setSelectedRating('');
-        setSelectedSkill('');
+        if ((
+            selectedSkill === ''
+            ||
+            selectedSkill === 'Create custom skill'
+            &&
+            inputString === ''
+        )
+            && selectedRating === '') {
+            setInputValueState('Error')
+            alert('Please pick or create a skill and rating')
+        } else if (selectedSkill === '' && selectedRating !== '') {
+            alert('Please pick or create a skill')
+        } else if (selectedSkill !== '' && selectedRating === '') {
+            alert('Please pick a rating for this skill')
+        } else {
+            setInputValueState('None')
+            dispatch({
+                type: 'SET_SKILL',
+                payload: newSkillData
+            })
+            handleCloseDialog();
+            setSelectedRating('');
+            setSelectedSkill('');
+        }
     }
 
     const handleOpenDialog = () => {
@@ -77,13 +98,28 @@ function SkillTable() {
         dispatch({ type: 'CLOSE_DIALOG' });
         setSelectCustom(false)
         setSelectedSkill('');
+        setInputValueState('None')
+        setSelectedRating('')
     }
 
     const handleSelect = (event) => {
         if (event === 'Create custom skill') {
             setSelectCustom(true)
+            setInputValueState('None')
         } else {
             setSelectedSkill(event)
+        }
+        if (selectedSkill !== '') {
+            setInputValueState('None')
+        }
+    }
+
+    const handleInput = (event) => {
+        setInputString(event);
+        if (event === '') {
+            setInputValueState('Warning')
+        } else {
+            setInputValueState('Success')
         }
     }
 
@@ -203,22 +239,26 @@ function SkillTable() {
                                 <Input
                                     placeholder='What is your new skill?'
                                     onChange={(event) => handleSelect(event.target.value)}
+                                    onInput={(event) => handleInput(event.target.value)}
                                     required
+                                    valueState={inputValueState}
                                 />
 
                         }
-                        < Text
-                            icon="information"
-                            style={{ marginTop: '1em' }}
+
+                        <Label
+                            for='ratingID'
+                            required
                         >
                             What is your level in this skill?
-                        </Text>
-
+                        </Label>
                         <RatingIndicator
                             onChange={(event) => setSelectedRating(event.target.value)}
                             value={selectedRating}
                             required
+                            id='ratingID'
                         />
+
 
                     </FlexBox>
                 </Dialog>

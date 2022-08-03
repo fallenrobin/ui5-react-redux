@@ -129,6 +129,7 @@ function SkillItem({ skill }) {
                 <TableCell>
                     <Button
                         icon="delete"
+                        design='Negative'
                     />
                 </TableCell>
             </TableRow>

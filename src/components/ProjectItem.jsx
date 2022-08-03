@@ -5,27 +5,43 @@ import NoteItem from './NoteItem';
 import {
     FlexBox,
     Panel,
+    Toolbar,
+    ToolbarSpacer,
     Title,
     Text,
-    Button
+    Button,
+    List,
+    StandardListItem
 } from '@ui5/webcomponents-react';
 
 function ProjectItem({ project, team, notes }) {
     return (
         <>
             <Panel
+                header=
+                {<Toolbar>
+                    <Title>
+                        {project.projectName}
+                    </Title>
+                    <ToolbarSpacer />
+                    <Button icon="edit" />
+                    <Button
+                        icon="delete"
+                        design='Negative'
+                    />
+                </Toolbar>}
                 headerText={project.projectName}
                 onToggle={function noRefCheck() { }}
                 style={{ width: '50%' }}
                 collapsed
             >
-                <Title level="H4">
+                <StandardListItem>
                     Project dates: {project.startDate} - {project.endDate}
-                </Title>
+                </StandardListItem>
                 <Text level="h5">
                     Team Members:
                 </Text>
-                <ul>
+                <List>
                     {team.map((teamMember) => {
                         return (
                             <TeamItem
@@ -34,10 +50,10 @@ function ProjectItem({ project, team, notes }) {
                             />
                         )
                     })}
-                </ul>
+                </List>
                 <Text>
                     Notes:
-                    <ul>
+                    <List>
                         {notes.map((note) => {
                             return (
                                 <NoteItem
@@ -46,7 +62,7 @@ function ProjectItem({ project, team, notes }) {
                                 />
                             )
                         })}
-                    </ul>
+                    </List>
                 </Text>
             </Panel>
         </>

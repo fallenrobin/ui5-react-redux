@@ -39,7 +39,8 @@ function SkillItem({ skill }) {
         dispatch({
             type: 'SET_EDITED_RATING',
             payload: editedData
-     })
+        })
+        setOpen(false)
     }
 
     return (

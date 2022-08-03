@@ -34,8 +34,7 @@ function TabsHomePage() {
 
             <Tab
                 icon="radar-chart"
-                text="Team Skills"
-                selected>
+                text="Team Skills">
                 <RadarChart />
             </Tab>
 

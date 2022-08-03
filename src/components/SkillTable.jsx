@@ -16,7 +16,8 @@ import {
     Text,
     ComboBox,
     ComboBoxGroupItem,
-    ComboBoxItem
+    ComboBoxItem,
+    Input
 }
     from '@ui5/webcomponents-react';
 import "@ui5/webcomponents-icons/dist/add";
@@ -26,7 +27,6 @@ import "@ui5/webcomponents-icons/dist/information";
 import SkillItem from './SkillItem';
 // TODO: import GenericDialog from './GenericDialog';
 import SkillDropdown from '../_widgets.js/SkillDropdown';
-
 
 
 function SkillTable() {
@@ -42,8 +42,8 @@ function SkillTable() {
     {
         technology: selectedSkill,
         rating: selectedRating,
-        id:7,
-        date:'8/1/2022'
+        id: 7,
+        date: '8/1/2022'
         // TODO: date: { {Date.now} }
     }
 
@@ -182,6 +182,10 @@ function SkillTable() {
                             <ComboBoxItem text="ProofHub" />
                         </ComboBox>
                         {/* FIXME: info icon */}
+                
+                        <Input 
+                        placeholder='What is your new skill?'
+                        />
                         < Text
                             icon="information"
                             style={{ marginTop: '1em' }}

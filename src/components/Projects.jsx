@@ -1,4 +1,5 @@
 import React from 'react'
+import projectReducer from '../Redux/projectReducer';
 
 import {
   FlexBox,
@@ -6,9 +7,15 @@ import {
   Title,
   Text
 } from '@ui5/webcomponents-react';
+import { useSelector } from 'react-redux';
 
 
 function Projects() {
+
+const projectData = (useSelector(store => store.projectReducer));
+
+console.log(projectData);
+
   return (
     <FlexBox>
       <Panel

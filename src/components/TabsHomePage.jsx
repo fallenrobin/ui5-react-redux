@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
     TabContainer,
     Tab,
@@ -16,7 +16,6 @@ import "@ui5/webcomponents-icons/dist/activity-individual";
 
 
 function TabsHomePage() {
-
 
     return (
         <TabContainer>

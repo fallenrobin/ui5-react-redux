@@ -13,12 +13,15 @@ function Projects() {
   const projectData = (useSelector(store => store.projectReducer));
 
   return (
-    <FlexBox>
+    <FlexBox
+      direction='Column'
+    >
       {projectData.map((project) => {
         return (
           <ProjectItem
             project={project}
             team={project.teamMembers}
+            notes={project.notes}
             key={project.id}
           />
         )

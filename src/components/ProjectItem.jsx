@@ -1,20 +1,23 @@
 import React from 'react'
 import TeamItem from './TeamItem';
+import NoteItem from './NoteItem';
 
 import {
     FlexBox,
     Panel,
     Title,
-    Text
+    Text,
+    Button
 } from '@ui5/webcomponents-react';
 
-function ProjectItem({ project, team }) {
+function ProjectItem({ project, team, notes }) {
     return (
         <>
             <Panel
                 headerText={project.projectName}
                 onToggle={function noRefCheck() { }}
                 style={{ width: '50%' }}
+                collapsed
             >
                 <Title level="H4">
                     Project dates: {project.startDate} - {project.endDate}
@@ -25,15 +28,25 @@ function ProjectItem({ project, team }) {
                 <ul>
                     {team.map((teamMember) => {
                         return (
-                            <TeamItem 
-                            teamMember={teamMember}
-                            key={teamMember.name}
+                            <TeamItem
+                                teamMember={teamMember}
+                                key={teamMember.name}
                             />
                         )
                     })}
                 </ul>
                 <Text>
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                    Notes:
+                    <ul>
+                        {notes.map((note) => {
+                            return (
+                                <NoteItem
+                                    note={note}
+                                    key={note.note}
+                                />
+                            )
+                        })}
+                    </ul>
                 </Text>
             </Panel>
         </>

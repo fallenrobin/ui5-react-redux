@@ -75,6 +75,15 @@ function SkillTable() {
         dispatch({ type: 'CLOSE_DIALOG' });
     }
 
+    const handleSelect = (event) => {
+        // console.log('selected item:', event)
+        if (event === 'Create custom skill') {
+            console.log('clicked custom')
+        } else {
+            console.log('clicked other skill')
+        }
+    }
+
     return (
         <>
             <FlexBox
@@ -161,7 +170,7 @@ function SkillTable() {
                         }}
                     >
                         <ComboBox
-                            onChange={(event) => setSelectedSkill(event.target.value)}
+                            onChange={(event) => handleSelect(event.target.value)}
                             placeholder={'Select technology'}
                             value={selectedSkill}
                         >
@@ -180,11 +189,17 @@ function SkillTable() {
                             <ComboBoxItem text="Mural" />
                             <ComboBoxItem text="Adobe Illustrator" />
                             <ComboBoxItem text="ProofHub" />
+                            <ComboBoxGroupItem text="Custom skill" />
+                            <ComboBoxItem text="Create custom skill" />
                         </ComboBox>
-                        {/* FIXME: info icon */}
-                
-                        <Input 
-                        placeholder='What is your new skill?'
+                        {/* TODO: info icon */}
+                        <Button
+                            design="transparent"
+                        >
+                            Create custom skill
+                        </Button>
+                        <Input
+                            placeholder='What is your new skill?'
                         />
                         < Text
                             icon="information"

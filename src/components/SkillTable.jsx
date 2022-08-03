@@ -85,7 +85,6 @@ function SkillTable() {
         } else {
             setSelectedSkill(event)
         }
-        console.log(selectedSkill, selectCustom)
     }
 
     return (
@@ -204,6 +203,8 @@ function SkillTable() {
                                 :
                                 <Input
                                     placeholder='What is your new skill?'
+                                    required='true'
+                                    onChange={(event) => handleSelect(event.target.value)}
                                 />
 
                         }

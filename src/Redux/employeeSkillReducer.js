@@ -39,7 +39,7 @@ const employeeSkillData =
   ];
 
 
-function skillReducer(state = employeeSkillData, action) {
+function employeeSkillReducer(state = employeeSkillData, action) {
 
 
   switch (action.type) {
@@ -61,4 +61,4 @@ function skillReducer(state = employeeSkillData, action) {
 }
 
 
-export default skillReducer;
+export default employeeSkillReducer;

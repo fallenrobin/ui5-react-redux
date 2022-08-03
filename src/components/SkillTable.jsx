@@ -38,7 +38,7 @@ function SkillTable() {
     const [inputString, setInputString] = useState('');
 
 
-    const employeeSkillData = (useSelector(store => store.skillReducer));
+    const employeeSkillData = (useSelector(store => store.employeeSkillReducer));
     const isOpen = (useSelector(store => store.dialogReducer));
     const editMode = (useSelector(store => store.editDialogReducer));
     const errorMessage = 'Please enter a skill'

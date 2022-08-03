@@ -33,6 +33,7 @@ function SkillTable() {
 
     const [selectedSkill, setSelectedSkill] = useState('');
     const [selectedRating, setSelectedRating] = useState('');
+    const [selectCustom, setSelectCustom] = useState(false);
 
     const employeeSkillData = (useSelector(store => store.skillReducer));
     const isOpen = (useSelector(store => store.dialogReducer));
@@ -69,19 +70,22 @@ function SkillTable() {
     const handleOpenDialog = () => {
         console.log('clicked Add Skill');
         dispatch({ type: 'OPEN_DIALOG' });
+        setSelectCustom(false);
     }
 
     const handleCloseDialog = () => {
         dispatch({ type: 'CLOSE_DIALOG' });
+        setSelectCustom(false)
+        setSelectedSkill('');
     }
 
     const handleSelect = (event) => {
-        // console.log('selected item:', event)
         if (event === 'Create custom skill') {
-            console.log('clicked custom')
+            setSelectCustom(true)
         } else {
-            console.log('clicked other skill')
+            setSelectedSkill(event)
         }
+        console.log(selectedSkill, selectCustom)
     }
 
     return (
@@ -169,38 +173,40 @@ function SkillTable() {
                             flexDirection: 'column'
                         }}
                     >
-                        <ComboBox
-                            onChange={(event) => handleSelect(event.target.value)}
-                            placeholder={'Select technology'}
-                            value={selectedSkill}
-                        >
-                            <ComboBoxGroupItem text="Front end" />
-                            <ComboBoxItem text="CSS" />
-                            <ComboBoxItem text="Tailwind" />
-                            <ComboBoxItem text="MUI" />
-                            <ComboBoxItem text="UI5" />
-                            <ComboBoxGroupItem text="Back end" />
-                            <ComboBoxItem text="Python" />
-                            <ComboBoxItem text="PHP" />
-                            <ComboBoxItem text="Java" />
-                            <ComboBoxItem text="C#" />
-                            <ComboBoxGroupItem text="Design" />
-                            <ComboBoxItem text="Figma" />
-                            <ComboBoxItem text="Mural" />
-                            <ComboBoxItem text="Adobe Illustrator" />
-                            <ComboBoxItem text="ProofHub" />
-                            <ComboBoxGroupItem text="Custom skill" />
-                            <ComboBoxItem text="Create custom skill" />
-                        </ComboBox>
-                        {/* TODO: info icon */}
-                        <Button
-                            design="transparent"
-                        >
-                            Create custom skill
-                        </Button>
-                        <Input
-                            placeholder='What is your new skill?'
-                        />
+                        {
+                            !selectCustom ?
+
+                                <ComboBox
+                                    onChange={(event) => handleSelect(event.target.value)}
+                                    placeholder={'Select technology'}
+                                    value={selectedSkill}
+                                    
+                                >
+                                    <ComboBoxGroupItem text="Front end" />
+                                    <ComboBoxItem text="CSS" />
+                                    <ComboBoxItem text="Tailwind" />
+                                    <ComboBoxItem text="MUI" />
+                                    <ComboBoxItem text="UI5" />
+                                    <ComboBoxGroupItem text="Back end" />
+                                    <ComboBoxItem text="Python" />
+                                    <ComboBoxItem text="PHP" />
+                                    <ComboBoxItem text="Java" />
+                                    <ComboBoxItem text="C#" />
+                                    <ComboBoxGroupItem text="Design" />
+                                    <ComboBoxItem text="Figma" />
+                                    <ComboBoxItem text="Mural" />
+                                    <ComboBoxItem text="Adobe Illustrator" />
+                                    <ComboBoxItem text="ProofHub" />
+                                    <ComboBoxGroupItem text="Custom skill" />
+                                    <ComboBoxItem text="Create custom skill" />
+                                </ComboBox>
+
+                                :
+                                <Input
+                                    placeholder='What is your new skill?'
+                                />
+
+                        }
                         < Text
                             icon="information"
                             style={{ marginTop: '1em' }}
@@ -215,7 +221,7 @@ function SkillTable() {
 
                     </FlexBox>
                 </Dialog>
-            </FlexBox>
+            </FlexBox >
         </>
     )
 }

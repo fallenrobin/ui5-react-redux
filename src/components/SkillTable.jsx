@@ -37,6 +37,8 @@ function SkillTable() {
     const [inputValueState, setInputValueState] = useState('');
     const [inputString, setInputString] = useState('');
 
+    const allSkills = (useSelector(store => store.allSkillsReducer))
+    const frontEndSkills = allSkills.filter(oneSkill => oneSkill.type === 1)
     const employeeSkillData = (useSelector(store => store.employeeSkillReducer));
     const isOpen = (useSelector(store => store.dialogReducer));
     const editMode = (useSelector(store => store.editDialogReducer));
@@ -217,10 +219,11 @@ function SkillTable() {
 
                                 >
                                     <ComboBoxGroupItem text="Front end" />
-                                    <ComboBoxItem text="CSS" />
-                                    <ComboBoxItem text="Tailwind" />
-                                    <ComboBoxItem text="MUI" />
-                                    <ComboBoxItem text="UI5" />
+                                    {frontEndSkills.map((oneSkill) => {
+                                        return (
+                                            <ComboBoxItem text={oneSkill.name} />
+                                        )
+                                    })}
                                     <ComboBoxGroupItem text="Back end" />
                                     <ComboBoxItem text="Python" />
                                     <ComboBoxItem text="PHP" />

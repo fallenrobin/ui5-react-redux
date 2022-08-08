@@ -1,10 +1,50 @@
-const initialSkills =
+const allSkills =
     [
         {
             name: 'React',
             id: 1,
             type: 1
         },
+        {
+            name: 'UI5',
+            id: 2,
+            type: 1
+        },
+        {
+            name: 'Tailwind',
+            id: 3,
+            type: 1
+        },
+        {
+            name: 'ABAP',
+            id: 4,
+            type: 2
+        },
+        {
+            name: 'Java',
+            id: 5,
+            type: 2
+        },
+        {
+            name: 'PostgreSQL',
+            id: 6,
+            type: 2
+        },
+        {
+            name: 'Figma',
+            id: 7,
+            type: 3
+        },
+        {
+            name: 'Adobe Illustrator',
+            id: 8,
+            type: 3
+        },
+        {
+            name: 'ProofHub',
+            id: 9,
+            type: 3
+        }
     ];
 
 /* 
@@ -15,7 +55,7 @@ types:
 */
 
 
-function allSkillsReducer(state = initialSkills, action) {
+function allSkillsReducer(state = allSkills, action) {
 
 
     switch (action.type) {
@@ -23,14 +63,9 @@ function allSkillsReducer(state = initialSkills, action) {
             return state;
         case 'SET_SKILL':
             return [...state, action.payload];
-        case 'SET_EDITED_RATING':
-            let employeeSkills = state.filter(employeeSkill => employeeSkill.id === action.payload.id);
-            for (const employeeSkill of employeeSkills) {
-                employeeSkill.rating = action.payload.rating
-            };
-            // employeeSkills[0].rating = action.payload.rating;
-            console.log('in skill reducer, new state should be:', state);
-            return [...state];
+        case 'SET_NEW_SKILL':
+            console.log('in allSkill reducer, new state should be:', state);
+            return [...state, action.payload];
         default:
             return state;
     }

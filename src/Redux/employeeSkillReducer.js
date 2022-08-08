@@ -1,4 +1,4 @@
-const employeeSkillData =
+let employeeSkillData =
   [
     {
       skillID: 1,
@@ -17,7 +17,7 @@ const employeeSkillData =
       date: '03/01/2021',
       rating: 4,
       id: 3
-    },
+    }
   ];
 
 
@@ -27,7 +27,7 @@ function employeeSkillReducer(state = employeeSkillData, action) {
   switch (action.type) {
     case 'GET_SKILLS':
       return state;
-    case 'SET_SKILL':
+    case 'SET_EMPLOYEE_SKILL':
       return [...state, action.payload];
     case 'SET_EDITED_RATING':
       let employeeSkills = state.filter(employeeSkill => employeeSkill.id === action.payload.id);

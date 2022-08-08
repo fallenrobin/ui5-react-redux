@@ -47,10 +47,10 @@ function SkillTable() {
 
     const newSkillData =
     {
-        technology: selectedSkill,
+        skillID: 5,
+        date: '8/1/2022',
         rating: selectedRating,
-        id: 7,
-        date: '8/1/2022'
+        id: 20
         // TODO: date: { {Date.now} }
     }
 
@@ -81,7 +81,7 @@ function SkillTable() {
         } else {
             setInputValueState('None')
             dispatch({
-                type: 'SET_SKILL',
+                type: 'SET_EMPLOYEE_SKILL',
                 payload: newSkillData
             })
             handleCloseDialog();
@@ -123,12 +123,6 @@ function SkillTable() {
         } else {
             setInputValueState('Success')
         }
-    }
-
-    function randomNumber(min, max) {
-        min = Math.ceil(min);
-        max = Math.floor(max);
-        return Math.floor(Math.random() * (max - min) + min);
     }
 
     return (
@@ -228,13 +222,19 @@ function SkillTable() {
                                     <ComboBoxGroupItem text="Front end" />
                                     {frontEndSkills.map((oneSkill) => {
                                         return (
-                                            <ComboBoxItem text={oneSkill.name} />
+                                            <ComboBoxItem 
+                                            text={oneSkill.name} 
+                                            key={oneSkill.id}
+                                            />
                                         )
                                     })}
                                     <ComboBoxGroupItem text="Back end" />
                                     {backEndSkills.map((oneSkill) => {
                                         return (
-                                            <ComboBoxItem text={oneSkill.name} />
+                                            <ComboBoxItem 
+                                            text={oneSkill.name} 
+                                            key={oneSkill.id}
+                                            />
                                         )
                                     })}
                                     <ComboBoxGroupItem text="Design" />
@@ -242,7 +242,7 @@ function SkillTable() {
                                         return (
                                             <ComboBoxItem
                                                 text={oneSkill.name}
-                                                key={randomNumber(3,1000)}
+                                                key={oneSkill.id}
                                             />
                                         )
                                     })}

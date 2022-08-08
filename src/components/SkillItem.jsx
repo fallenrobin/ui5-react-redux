@@ -109,10 +109,10 @@ function SkillItem({ skill }) {
                 </FlexBox>
             </Dialog>
             <TableRow
-                key={skill.id}>
+                key={skillName.id}>
                 <TableCell>
                     <Label>
-                    {skillName[0].name}
+                    {skillName[0]?.name}
                     </Label>
                 </TableCell>
                 <TableCell>

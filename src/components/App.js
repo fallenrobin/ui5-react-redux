@@ -1,19 +1,11 @@
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
 
 import {
-  FlexBox,
-  FlexBoxAlignItems,
-  FlexBoxDirection,
-  FlexBoxJustifyContent,
-  Link,
-  LinkDesign,
   ShellBar,
   Avatar
 } from '@ui5/webcomponents-react';
 
 import TabsHomePage from "./TabsHomePage";
-import RadarChart from "./RadarChart";
-import Projects from './Projects'
 
 function App() {
   return (

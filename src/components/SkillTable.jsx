@@ -8,12 +8,9 @@ import {
     FlexBox,
     Button,
     Dialog,
-    FlexBoxJustifyContent,
     Bar,
     RatingIndicator,
-    Icon,
     Title,
-    Text,
     ComboBox,
     ComboBoxGroupItem,
     ComboBoxItem,
@@ -26,7 +23,6 @@ import "@ui5/webcomponents-icons/dist/information";
 
 import SkillItem from './SkillItem';
 // TODO: import GenericDialog from './GenericDialog';
-import SkillDropdown from '../_widgets.js/SkillDropdown';
 
 
 function SkillTable() {
@@ -43,7 +39,6 @@ function SkillTable() {
     const designSkills = allSkills.filter(oneSkill => oneSkill.type === 3)
     const employeeSkillData = (useSelector(store => store.employeeSkillReducer));
     const isOpen = (useSelector(store => store.dialogReducer));
-    const editMode = (useSelector(store => store.editDialogReducer));
 
     const newSkillData =
     {
@@ -65,9 +60,9 @@ function SkillTable() {
 
     const handleSave = () => {
         if ((
-            selectedSkill === ''
+            (selectedSkill === ''
             ||
-            selectedSkill === 'Create custom skill'
+            selectedSkill === 'Create custom skill')
             &&
             inputString === ''
         )

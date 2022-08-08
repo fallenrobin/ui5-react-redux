@@ -26,7 +26,7 @@ function SkillItem({ skill }) {
 
     const [editedRating, setEditedRating] = useState('');
 
-    let skillName = allSkills.filter
+    let singleSkill = allSkills.filter
         (oneSkill => oneSkill.id === skill.skillID);
 
     const editedData =
@@ -92,7 +92,7 @@ function SkillItem({ skill }) {
                     <SkillDropdown
                         id={skill.id}
                         disabled={true}
-                        value={skill.technology}
+                        value={singleSkill[0]?.name}
                         callback={handleSaveEdit}
                     />
                     < Text
@@ -109,10 +109,10 @@ function SkillItem({ skill }) {
                 </FlexBox>
             </Dialog>
             <TableRow
-                key={skillName.id}>
+                key={singleSkill.id}>
                 <TableCell>
                     <Label>
-                    {skillName[0]?.name}
+                    {singleSkill[0]?.name}
                     </Label>
                 </TableCell>
                 <TableCell>

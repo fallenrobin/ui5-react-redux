@@ -40,6 +40,7 @@ function SkillItem({ skill }) {
             type: 'SET_EDITED_RATING',
             payload: editedData
      })
+     setOpen(false)
     }
 
     return (

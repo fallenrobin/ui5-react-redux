@@ -37,7 +37,6 @@ function SkillTable() {
     const [inputValueState, setInputValueState] = useState('');
     const [inputString, setInputString] = useState('');
 
-
     const employeeSkillData = (useSelector(store => store.employeeSkillReducer));
     const isOpen = (useSelector(store => store.dialogReducer));
     const editMode = (useSelector(store => store.editDialogReducer));

@@ -60,6 +60,7 @@ function allSkillsReducer(state = allSkills, action) {
 
     switch (action.type) {
         case 'GET_SKILLS':
+            //map thru skills and compare to existing employee skills
             return state;
         case 'SET_SKILL':
             return [...state, action.payload];

@@ -22,8 +22,12 @@ function SkillItem({ skill }) {
 
     const dispatch = useDispatch();
     const [open, setOpen] = useState(false)
+    const allSkills = (useSelector(store => store.allSkillsReducer))
 
     const [editedRating, setEditedRating] = useState('');
+
+    let skillName = allSkills.filter
+        (oneSkill => oneSkill.id === skill.skillID);
 
     const editedData =
     {
@@ -42,6 +46,7 @@ function SkillItem({ skill }) {
         })
         setOpen(false)
     }
+
 
     return (
         <>
@@ -107,7 +112,7 @@ function SkillItem({ skill }) {
                 key={skill.id}>
                 <TableCell>
                     <Label>
-                        {skill.technology}
+                    {skillName[0].name}
                     </Label>
                 </TableCell>
                 <TableCell>

@@ -9,7 +9,7 @@ const employeeSkillData =
     {
       skillID: 4,
       date: '02/01/2021',
-      rating: 22,
+      rating: 2,
       id: 2
     },
     {

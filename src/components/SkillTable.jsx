@@ -39,10 +39,11 @@ function SkillTable() {
 
     const allSkills = (useSelector(store => store.allSkillsReducer))
     const frontEndSkills = allSkills.filter(oneSkill => oneSkill.type === 1)
+    const backEndSkills = allSkills.filter(oneSkill => oneSkill.type === 2)
+    const designSkills = allSkills.filter(oneSkill => oneSkill.type === 3)
     const employeeSkillData = (useSelector(store => store.employeeSkillReducer));
     const isOpen = (useSelector(store => store.dialogReducer));
     const editMode = (useSelector(store => store.editDialogReducer));
-    const errorMessage = 'Please enter a skill'
 
     const newSkillData =
     {
@@ -122,6 +123,12 @@ function SkillTable() {
         } else {
             setInputValueState('Success')
         }
+    }
+
+    function randomNumber(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min) + min);
     }
 
     return (
@@ -225,15 +232,20 @@ function SkillTable() {
                                         )
                                     })}
                                     <ComboBoxGroupItem text="Back end" />
-                                    <ComboBoxItem text="Python" />
-                                    <ComboBoxItem text="PHP" />
-                                    <ComboBoxItem text="Java" />
-                                    <ComboBoxItem text="C#" />
+                                    {backEndSkills.map((oneSkill) => {
+                                        return (
+                                            <ComboBoxItem text={oneSkill.name} />
+                                        )
+                                    })}
                                     <ComboBoxGroupItem text="Design" />
-                                    <ComboBoxItem text="Figma" />
-                                    <ComboBoxItem text="Mural" />
-                                    <ComboBoxItem text="Adobe Illustrator" />
-                                    <ComboBoxItem text="ProofHub" />
+                                    {designSkills.map((oneSkill) => {
+                                        return (
+                                            <ComboBoxItem
+                                                text={oneSkill.name}
+                                                key={randomNumber(3,1000)}
+                                            />
+                                        )
+                                    })}
                                     <ComboBoxGroupItem text="Custom skill" />
                                     <ComboBoxItem text="Create custom skill" />
                                 </ComboBox>

@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import {
     TabContainer,
     Tab,
@@ -17,11 +18,13 @@ import "@ui5/webcomponents-icons/dist/activity-individual";
 
 function TabsHomePage() {
 
+    const skills = (useSelector(store => store.employeeSkillReducer))
+    const projects = (useSelector(store => store.projectReducer))
 
     return (
         <TabContainer>
             <Tab
-                additionalText="5"
+                additionalText={skills.length}
                 icon="activity-individual"
                 text="My Skills">
                 <HomePage />
@@ -30,15 +33,13 @@ function TabsHomePage() {
             <TabSeparator />
 
             <Tab
-                additionalText="20"
                 icon="radar-chart"
-                text="Team Skills"
-                selected>
+                text="Team Skills">
                 <RadarChart />
             </Tab>
 
             <Tab
-                additionalText="20"
+                additionalText={projects.length}
                 icon="work-history"
                 text="My Projects">
                 <Projects />

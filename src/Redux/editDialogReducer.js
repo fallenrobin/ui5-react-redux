@@ -2,7 +2,7 @@ function editDialogReducer(state = false, action) {
     switch (action.type) {
         case 'EDIT_DIALOG_OPEN':
             return true;
-        case 'OPEN_DIALOG':
+        case 'EDIT_DIALOG_CLOSE':
             return false;
         default:
             return state;

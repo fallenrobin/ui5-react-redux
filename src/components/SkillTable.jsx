@@ -8,12 +8,9 @@ import {
     FlexBox,
     Button,
     Dialog,
-    FlexBoxJustifyContent,
     Bar,
     RatingIndicator,
-    Icon,
     Title,
-    Text,
     ComboBox,
     ComboBoxGroupItem,
     ComboBoxItem,
@@ -26,7 +23,6 @@ import "@ui5/webcomponents-icons/dist/information";
 
 import SkillItem from './SkillItem';
 // TODO: import GenericDialog from './GenericDialog';
-import SkillDropdown from '../_widgets.js/SkillDropdown';
 
 
 function SkillTable() {
@@ -37,18 +33,19 @@ function SkillTable() {
     const [inputValueState, setInputValueState] = useState('');
     const [inputString, setInputString] = useState('');
 
-
-    const employeeSkillData = (useSelector(store => store.skillReducer));
+    const allSkills = (useSelector(store => store.allSkillsReducer))
+    const frontEndSkills = allSkills.filter(oneSkill => oneSkill.type === 1)
+    const backEndSkills = allSkills.filter(oneSkill => oneSkill.type === 2)
+    const designSkills = allSkills.filter(oneSkill => oneSkill.type === 3)
+    const employeeSkillData = (useSelector(store => store.employeeSkillReducer));
     const isOpen = (useSelector(store => store.dialogReducer));
-    const editMode = (useSelector(store => store.editDialogReducer));
-    const errorMessage = 'Please enter a skill'
 
     const newSkillData =
     {
-        technology: selectedSkill,
+        skillID: 5,
+        date: '8/1/2022',
         rating: selectedRating,
-        id: 7,
-        date: '8/1/2022'
+        id: 20
         // TODO: date: { {Date.now} }
     }
 
@@ -63,9 +60,9 @@ function SkillTable() {
 
     const handleSave = () => {
         if ((
-            selectedSkill === ''
+            (selectedSkill === ''
             ||
-            selectedSkill === 'Create custom skill'
+            selectedSkill === 'Create custom skill')
             &&
             inputString === ''
         )
@@ -79,7 +76,7 @@ function SkillTable() {
         } else {
             setInputValueState('None')
             dispatch({
-                type: 'SET_SKILL',
+                type: 'SET_EMPLOYEE_SKILL',
                 payload: newSkillData
             })
             handleCloseDialog();
@@ -218,20 +215,32 @@ function SkillTable() {
 
                                 >
                                     <ComboBoxGroupItem text="Front end" />
-                                    <ComboBoxItem text="CSS" />
-                                    <ComboBoxItem text="Tailwind" />
-                                    <ComboBoxItem text="MUI" />
-                                    <ComboBoxItem text="UI5" />
+                                    {frontEndSkills.map((oneSkill) => {
+                                        return (
+                                            <ComboBoxItem 
+                                            text={oneSkill.name} 
+                                            key={oneSkill.id}
+                                            />
+                                        )
+                                    })}
                                     <ComboBoxGroupItem text="Back end" />
-                                    <ComboBoxItem text="Python" />
-                                    <ComboBoxItem text="PHP" />
-                                    <ComboBoxItem text="Java" />
-                                    <ComboBoxItem text="C#" />
+                                    {backEndSkills.map((oneSkill) => {
+                                        return (
+                                            <ComboBoxItem 
+                                            text={oneSkill.name} 
+                                            key={oneSkill.id}
+                                            />
+                                        )
+                                    })}
                                     <ComboBoxGroupItem text="Design" />
-                                    <ComboBoxItem text="Figma" />
-                                    <ComboBoxItem text="Mural" />
-                                    <ComboBoxItem text="Adobe Illustrator" />
-                                    <ComboBoxItem text="ProofHub" />
+                                    {designSkills.map((oneSkill) => {
+                                        return (
+                                            <ComboBoxItem
+                                                text={oneSkill.name}
+                                                key={oneSkill.id}
+                                            />
+                                        )
+                                    })}
                                     <ComboBoxGroupItem text="Custom skill" />
                                     <ComboBoxItem text="Create custom skill" />
                                 </ComboBox>

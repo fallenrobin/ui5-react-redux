@@ -1,15 +1,17 @@
 import { combineReducers } from 'redux';
-import skillReducer from './SkillReducer';
+import employeeSkillReducer from './employeeSkillReducer';
 import dialogReducer from './dialogReducer';
 import editDialogReducer from './editDialogReducer';
-import projectReducer from './projectReducer'
+import projectReducer from './projectReducer';
+import allSkillsReducer from './allSkillsReducer'
 
 
 const rootReducer = combineReducers({
-    skillReducer, 
+    employeeSkillReducer, 
     dialogReducer,
     editDialogReducer, 
-    projectReducer
+    projectReducer, 
+    allSkillsReducer
 });
 
 export default rootReducer;

@@ -6,100 +6,132 @@ function RadarSkillChart() {
     <RadarChart
       dataset={[
         {
-          name: 'January',
-          sessions: 300,
-          users: 100,
-          volume: 756
+          name: 'React',
+          one: 10,
+          two: 12,
+          three: 5,
+          four: 2,
+          five: 1
         },
         {
-          name: 'February',
-          sessions: 330,
-          users: 230,
-          volume: 880
+          name: 'UI5',
+          one: 3,
+          two: 3,
+          three: 8,
+          four: 7,
+          five: 2
         },
         {
-          name: 'March',
-          sessions: 404,
-          users: 240,
-          volume: 700
+          name: 'ABAP RAP',
+          one: 4,
+          two: 2,
+          three: 2,
+          four: 4,
+          five: 4
         },
         {
-          name: 'April',
-          sessions: 80,
-          users: 280,
-          volume: 604
+          name: 'OData',
+          one: 7,
+          two: 3,
+          three: 5,
+          four: 1,
+          five: 1
         },
         {
-          name: 'May',
-          sessions: 300,
-          users: 100,
-          volume: 756
+          name: 'PostgreSql',
+          one: 1,
+          two: 2,
+          three: 4,
+          four: 5,
+          five: 2
         },
         {
-          name: 'June',
-          sessions: 330,
-          users: 230,
-          volume: 880
+          name: 'S4/HANA',
+          one: 2,
+          two: 4,
+          three: 3,
+          four: 5,
+          five: 2
         },
         {
-          name: 'July',
-          sessions: 470,
-          users: 20,
-          volume: 450
+          name: 'ABAP',
+          one: 2,
+          two: 4,
+          three: 4,
+          four: 6,
+          five: 2
         },
         {
-          name: 'August',
-          sessions: 180,
-          users: 220,
-          volume: 104
+          name: 'Figma',
+          one: 1,
+          two: 4,
+          three: 7,
+          four: 2,
+          five: 0
         },
         {
-          name: 'September',
-          sessions: 360,
-          users: 200,
-          volume: 879
+          name: 'Tailwind',
+          one: 0,
+          two: 0,
+          three: 2,
+          four: 4,
+          five: 0
         },
         {
-          name: 'October',
-          sessions: 500,
-          users: 250,
-          volume: 200
+          name: 'MUI',
+          one: 2,
+          two: 4,
+          three: 3,
+          four: 5,
+          five: 2
         },
         {
-          name: 'November',
-          sessions: 404,
-          users: 240,
-          volume: 700
+          name: 'Django',
+          one: 2,
+          two: 4,
+          three: 3,
+          four: 5,
+          five: 2
         },
         {
-          name: 'December',
-          sessions: 80,
-          users: 280,
-          volume: 604
+          name: 'NoSQL',
+          one: 2,
+          two: 4,
+          three: 3,
+          four: 5,
+          five: 2
         }
       ]}
       dimensions={[
         {
           accessor: 'name',
-          formatter: function noRefCheck() { },
+          label:'name',
           interval: 0
         }
       ]}
       measures={[
         {
-          accessor: 'users',
-          formatter: function noRefCheck() { },
-          label: 'Users'
+          accessor: 'one',
+          label: '1 star'
         },
         {
-          accessor: 'sessions',
-          formatter: function noRefCheck() { },
+          accessor: 'two',
           hideDataLabel: true,
-          label: 'Active Sessions'
+          label: '2 stars'
         },
         {
-          accessor: 'volume',
-          label: 'Vol.'
+          accessor: 'three',
+          hideDataLabel: true,
+          label: '3 stars'
+        },
+        {
+          accessor: 'four',
+          hideDataLabel: true,
+          label: '4 stars'
+        },
+        {
+          accessor: 'five',
+          label: '5 stars'
         }
       ]}
       onClick={function noRefCheck() { }}

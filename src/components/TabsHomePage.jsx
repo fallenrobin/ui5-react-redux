@@ -7,7 +7,7 @@ import {
 } from '@ui5/webcomponents-react';
 
 import HomePage from './HomePage';
-import RadarChart from './RadarChart';
+import RadarSkillChart from './RadarChart';
 import Projects from './Projects';
 
 import "@ui5/webcomponents-icons/dist/radar-chart";
@@ -35,7 +35,7 @@ function TabsHomePage() {
             <Tab
                 icon="radar-chart"
                 text="Team Skills">
-                <RadarChart />
+                <RadarSkillChart />
             </Tab>
 
             <Tab

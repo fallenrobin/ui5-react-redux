@@ -112,6 +112,7 @@ function RadarSkillChart() {
       measures={[
         {
           accessor: 'one',
+          hideDataLabel: true,
           label: '1 star'
         },
         {
@@ -131,6 +132,7 @@ function RadarSkillChart() {
         },
         {
           accessor: 'five',
+          hideDataLabel: true,
           label: '5 stars'
         }
       ]}
